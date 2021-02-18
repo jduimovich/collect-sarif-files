@@ -1,0 +1,4 @@
+ 
+FROM jduimovich/collect-sarif-files 
+COPY *.sarif   /
+RUN dos2unix /*.sarif

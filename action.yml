@@ -1,0 +1,21 @@
+# action.yml
+name: 'Merge Sarif Files'
+description: 'This action with take the sarys.'
+inputs:
+  input-file-name:  
+    description: 'This is the source file for the results'
+    required: false
+    default: 'snyk.sarif'
+  merged-file-name:  
+    description: 'This is the file name to use for merging all files'
+    required: false
+    default: 'merged.sarif'
+outputs:
+  result: 
+    description: 'The result of the merging command'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ input-file-name }}
+    - ${{ merged-file-name }}
