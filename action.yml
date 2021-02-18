@@ -17,5 +17,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ input-file-name }}
-    - ${{ merged-file-name }}
+    - ${{ inputs.input-file-name }}
+    - ${{ inputs.merged-file-name }}
