@@ -16,5 +16,5 @@ jobs:
       - name: Run local action
         uses: ./   
         with:
-          input-file-name: ./test/snyk.sarf
-          merged-file-name: ./test/merged.sarf  
+          input-file-name: ./test/snyk.sarif
+          merged-file-name: ./test/merged.sarif  
