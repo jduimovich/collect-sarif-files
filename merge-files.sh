@@ -21,8 +21,8 @@ fi
 
 export SCANNED=$(jq  ".runs[0].results[0].locations[0].physicalLocation.artifactLocation.uri" $SRC)
 SCANNED="${SCANNED%\"}"
-SCANNED="${N#\"}"
-SCANNED=$(echo $N | tr  "/" "-") 
+SCANNED="${SCANNED#\"}"
+SCANNED=$(echo $SCANNED | tr  "/" "-") 
 COPY_NAME=$(echo $SCANNED | sed "s/yaml/sarif/g")
 
 echo "File scanned is $SCANNED" 
