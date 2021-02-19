@@ -1,6 +1,6 @@
 # action.yml
 name: 'Merge Sarif Files'
-description: 'This action with take the sarys.'
+description: 'This action with take input file and merges into dest file.'
 inputs:
   input-file-name:  
     description: 'This is the source file for the results'
