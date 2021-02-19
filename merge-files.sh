@@ -28,13 +28,13 @@ COPY_NAME=$(echo $SCANNED | sed "s/yaml/sarif/g")
 echo "File scanned is $SCANNED" 
 echo "File backup is $COPY_NAME" 
 echo "Merging $SRC into $DST"  
-cp $SRC $COPY_NAME
+mv $SRC $COPY_NAME
 if [ -f "$DST" ]; then
-    echo "$DST exists, merging $SRC into it."
-    node merge.js $DST $SRC
+    echo "$DST exists, merging $COPY_NAME into it."
+    node merge.js $DST $COPY_NAME
 else
     echo "$DST does not exist, setting bootstrap."
-    cp $SRC $DST 
+    cp $COPY_NAME $DST 
 fi
 
  
