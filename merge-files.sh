@@ -25,8 +25,9 @@ SCANNED="${N#\"}"
 SCANNED=$(echo $N | tr  "/" "-") 
 COPY_NAME=$(echo $SCANNED | sed "s/yaml/sarif/g")
 
-echo "Merging $SRC into $DST" 
-echo "Placing a copy of $SRC into $COPY_NAME"
+echo "File scanned is $SCANNED" 
+echo "File backup is $COPY_NAME" 
+echo "Merging $SRC into $DST"  
 cp $SRC $COPY_NAME
 if [ -f "$DST" ]; then
     echo "$DST exists, merging $SRC into it."
