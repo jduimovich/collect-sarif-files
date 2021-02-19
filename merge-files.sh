@@ -16,21 +16,21 @@ then
    echo "Missing dest sarif name" 
    exit 1
 else
-   echo "Dest file is $SRC"
+   echo "Dest file is $DST"
 fi 
 
-export N=$(jq  ".runs[0].results[0].locations[0].physicalLocation.artifactLocation.uri" $SRC)
-N="${N%\"}"
-N="${N#\"}"
-N=$(echo $N | tr  "/" "-") 
-N=$(echo $N | sed "s/yaml/sarif/g")
+export SCANNED=$(jq  ".runs[0].results[0].locations[0].physicalLocation.artifactLocation.uri" $SRC)
+SCANNED="${SCANNED%\"}"
+SCANNED="${N#\"}"
+SCANNED=$(echo $N | tr  "/" "-") 
+COPY_NAME=$(echo $SCANNED | sed "s/yaml/sarif/g")
 
 echo "Merging $SRC into $DST" 
-echo "Placing a copy of $SRC into $N"
-cp $SRC $N  
+echo "Placing a copy of $SRC into $COPY_NAME"
+cp $SRC $COPY_NAME
 if [ -f "$DST" ]; then
-    echo "$DST exists, merging $N into it."
-    node merge.js $DST $N  
+    echo "$DST exists, merging $SRC into it."
+    node merge.js $DST $SRC
 else
     echo "$DST does not exist, setting bootstrap."
     cp $SRC $DST 
