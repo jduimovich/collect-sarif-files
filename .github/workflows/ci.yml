@@ -9,8 +9,13 @@ jobs:
     steps: 
       - name: Checkout
         uses: actions/checkout@v2
+      - name: ls
+        uses: ubuntu-latest
+        run: | 
+          ls -al 
+          du -a 
       - name: Run local action
         uses: ./   
         with:
-          input-file-name: test/snyk.sarf
-          merged-file-name: test/merged.sarf  
+          input-file-name: ./test/snyk.sarf
+          merged-file-name: ./test/merged.sarf  
