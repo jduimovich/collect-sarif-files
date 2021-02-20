@@ -13,8 +13,16 @@ jobs:
         run: | 
           ls -al 
           du -a 
-      - name: Run local action
+      - name: Merge first file into merged.sarif 
         uses: ./   
         with:
-          input-file-name: ./test/snyk.sarif
+          input-file-name: ./test/frontend.sarif
           merged-file-name: ./test/merged.sarif  
+      - name:  Merge first file into merged.sarif
+        uses: ./   
+        with:
+          input-file-name: ./test/fib-go.sarif
+          merged-file-name: ./test/merged.sarif
+      - name: Cat Result
+        run: | 
+          cat ./test/merged.sarif | jq  

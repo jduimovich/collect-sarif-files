@@ -1,5 +1,11 @@
 # merges src into dest, sarif scans
 # this utility is to workaround the single src update needed for Github security scans.
+# src is the first file
+# dest is the second file to merge and will be used as the destination filename
+
+echo $PWD
+ls -al /
+ls -al /example
 
 export SRC=$1
 export DST=$2 
@@ -31,12 +37,11 @@ echo "Merging $SRC into $DST"
 mv $SRC $COPY_NAME
 if [ -f "$DST" ]; then
     echo "$DST exists, merging $COPY_NAME into it."
-    node /merge.js $DST $COPY_NAME
+    node /collect-sarif-files/merge.js  $DST $COPY_NAME
 else
     echo "$DST does not exist, setting bootstrap."
     cp $COPY_NAME $DST 
-fi
-cat $DST
+fi 
 
  
 

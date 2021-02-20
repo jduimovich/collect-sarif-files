@@ -1,4 +1,4 @@
  
-FROM jduimovich/collect-sarif-files 
-COPY *.sarif   /
-RUN dos2unix /*.sarif
+FROM jduimovich/collect-sarif-files
+
+WORKDIR /example  

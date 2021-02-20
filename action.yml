@@ -7,7 +7,7 @@ inputs:
     required: false
     default: 'snyk.sarif'
   merged-file-name:  
-    description: 'This is the file name to use for merging all files'
+    description: 'This is the file name to use for merging all files. Use the same file in all destinations to ensure a single file merge is created.'
     required: false
     default: 'merged.sarif'
 outputs:
