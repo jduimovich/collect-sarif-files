@@ -25,7 +25,7 @@ function mergeSarif(d1, d2) {
     console.log(mergeInto + " rules found: ", srules(j1).length)
     console.log(mergeInto + " locations found: ", sresults(j1).length)
     console.log(mergeFrom + " rules found: ", srules(j2).length)
-    console.log(mergeInto + " locations found: ", sresults(j2))
+    console.log(mergeInto + " locations found: ", sresults(j2).length)
 
     var combined = srules(j1).concat(srules(j2));
     var included = new Set()

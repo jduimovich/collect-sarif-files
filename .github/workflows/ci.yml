@@ -8,17 +8,13 @@ jobs:
     name: Merge Sarif Files for github scans
     steps: 
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: ls 
-        run: | 
-          ls -al 
-          du -a 
+        uses: actions/checkout@v2 
       - name: Merge first file into merged.sarif 
         uses: ./   
         with:
           input-file-name: ./test/frontend.sarif
           merged-file-name: ./test/merged.sarif  
-      - name:  Merge first file into merged.sarif
+      - name:  Merge second file into merged.sarif
         uses: ./   
         with:
           input-file-name: ./test/fib-go.sarif
