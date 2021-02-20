@@ -31,11 +31,12 @@ echo "Merging $SRC into $DST"
 mv $SRC $COPY_NAME
 if [ -f "$DST" ]; then
     echo "$DST exists, merging $COPY_NAME into it."
-    node merge.js $DST $COPY_NAME
+    node /merge.js $DST $COPY_NAME
 else
     echo "$DST does not exist, setting bootstrap."
     cp $COPY_NAME $DST 
 fi
+cat $DST
 
  
 
