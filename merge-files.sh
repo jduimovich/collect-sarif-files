@@ -3,9 +3,7 @@
 # src is the first file
 # dest is the second file to merge and will be used as the destination filename
 
-echo $PWD
-ls -al /
-ls -al /example
+echo $PWD 
 
 export SRC=$1
 export DST=$2 
